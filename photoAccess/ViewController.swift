@@ -8,8 +8,28 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
+    
+    @IBAction func importImage(_ sender: Any) {
+        
+        let imagePickerController = UIImagePickerController()
+        
+        imagePickerController.delegate = self
+        
+        imagePickerController.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        
+        imagePickerController.allowsEditing = false
+        
+        self.present(imagePickerController, animated: true, completion: nil)
+        
+        
+    }
+    
+    @IBOutlet var imageView: UIImageView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
